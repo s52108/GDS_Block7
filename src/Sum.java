@@ -1,10 +1,39 @@
+import java.util.ArrayList;
+
 public class Sum {
     public static void main(String[] args) {
         System.out.println(sumUpIterative(3));
         System.out.println(sumUpRecursive(3));
         System.out.println(sumUpRecurrsiveAcc(3, 0));
+        ArrayList<Integer> numbers = new ArrayList<Integer>(3); //new Arraylist Strg + Alt + V
+        System.out.println("numbers = " + numbers);
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        System.out.println("numbers = " + numbers);
+        System.out.println(iterativeSum(numbers));
+        System.out.println(recursiveSum(numbers));
+
 
     }
+
+    public static int iterativeSum(ArrayList<Integer> values) {
+        int sum = 0;
+        for (Integer value : values) {
+            sum += value;
+        }
+        return sum;
+    }
+
+    public static int recursiveSum(ArrayList<Integer> values) {
+        if (values.size() == 0) {
+            return 0;
+        }
+        Integer value = values.remove(0);
+        return value + recursiveSum(values);
+
+    }
+
 
     public static int sumUpRecurrsiveAcc(int n, int acc) {
         if (n <= 0) {
